@@ -20,6 +20,9 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'letter_opener'
   gem 'rspec-rails'
+end
+
+group :test do
   gem 'cucumber-rails'
 end
 
