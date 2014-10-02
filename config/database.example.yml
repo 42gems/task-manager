@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: task-manager_development
+  pool: 5
+  username: postgres
+  password: password
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: task-manager_test
+  pool: 5
+  host: localhost
+  username: postgres
+  password: password
