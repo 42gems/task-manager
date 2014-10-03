@@ -12,6 +12,8 @@ a, a:hover, a:focus {
   color: $def_grey;
   text-decoration: none;
   border: none;
+  outline: 0;
+  outline-style: none;
 }
 
 .center { text-align: center; }
