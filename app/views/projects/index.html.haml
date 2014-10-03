@@ -1,0 +1,8 @@
+.container
+  - @projects.each do |project|
+    %a{ href: project_tasks_path(project) }
+      .project
+        %span
+          %strong= project.title
+        %span.pull-right.badge= project.tasks.open.size
+        %h5= "Created #{time_ago_in_words project.created_at} ago"

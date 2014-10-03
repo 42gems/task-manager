@@ -1,0 +1,21 @@
+.container
+  %h2.center Sign In
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    %p
+      Email
+      %br/
+      = f.email_field :email, autofocus: true, class: 'form-control'
+    %p
+      Password
+      %br/
+      = f.password_field :password, autocomplete: "off", class: 'form-control'
+    - if devise_mapping.rememberable?
+      %div
+        .pull-left
+          = f.check_box :remember_me
+          Remember me
+        .pull-right
+          = f.submit 'Login', class: 'btn btn-success'
+      %span{ style: 'opacity: 0;' } Hi!
+  %p.center
+    = render "devise/shared/links"

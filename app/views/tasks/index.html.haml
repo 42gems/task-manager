@@ -1,0 +1,14 @@
+.container
+  #todo.col-md-3
+    - @tasks.todo.each do |task|
+      = task.title
+  #in_progress.col-md-3
+    - @tasks.in_progress.each do |task|
+      = task.title
+  #done.col-md-3
+    - @tasks.done.each do |task|
+      = task.title
+  #approved.col-md-3
+    - @tasks.approved.each do |task|
+      = task.title
+      

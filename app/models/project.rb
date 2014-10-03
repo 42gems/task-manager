@@ -3,4 +3,6 @@ class Project < ActiveRecord::Base
   has_many :invites
   has_many :members, through: :invites, source: :user
   has_many :tasks, dependent: :destroy
+
+  validates_presence_of :title
 end

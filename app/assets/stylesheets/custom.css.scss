@@ -1,0 +1,52 @@
+/* Variables
+*******************************************/
+$dark_grey: #B3B3B3;
+$light_grey: #E8E8E8;
+$lighter_grey: #F5F5F5;
+$def_grey: #333333;
+
+/* General
+*******************************************/
+a, a:hover, a:focus {
+  display: inline-block;
+  color: $def_grey;
+  text-decoration: none;
+  border: none;
+}
+
+.center { text-align: center; }
+
+/* Devise login form
+*******************************************/
+form#new_user {
+  width: 300px;
+  /*height: 210px;*/
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+  border: 8px solid #EBEBEB;
+  background-color: #F5F5F5;
+  
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Project div
+*******************************************/
+.project {
+  margin-right: 15px;
+  margin-bottom: 20px;
+  width: 250px;
+  min-height: 80px;
+  padding: 8px;
+  overflow: hidden;
+  cursor: pointer;
+
+  background-color: $light_grey;
+
+  &:hover{
+    box-shadow: 5px 5px 0 $dark_grey;
+  }
+}
