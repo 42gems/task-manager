@@ -33,7 +33,7 @@ form#new_user {
   font-style: normal;
 }
 
-/* Project div
+/* Projects
 *******************************************/
 .project {
   margin-right: 15px;
@@ -48,5 +48,35 @@ form#new_user {
 
   &:hover{
     box-shadow: 5px 5px 0 $dark_grey;
+  }
+}
+
+/* Tasks
+*******************************************/
+.tasks {
+  div {
+    background-color: $light_grey;
+    border: 5px solid white;
+    border-radius: 10px;
+    margin: 0 0px;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    
+    li {
+      cursor: pointer;
+      margin: 8px 0;
+      margin-bottom: 10px;
+      padding: 8px;
+      border-radius: 5px;
+      background-color: $lighter_grey;
+      
+      &:hover{
+        box-shadow: 3px 3px 0 $dark_grey;
+      }
+    }
   }
 }

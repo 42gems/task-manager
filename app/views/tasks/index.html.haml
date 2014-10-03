@@ -1,14 +1,20 @@
 .container
-  #todo.col-md-3
-    - @tasks.todo.each do |task|
-      = task.title
-  #in_progress.col-md-3
-    - @tasks.in_progress.each do |task|
-      = task.title
-  #done.col-md-3
-    - @tasks.done.each do |task|
-      = task.title
-  #approved.col-md-3
-    - @tasks.approved.each do |task|
-      = task.title
-      
+  .tasks
+    %ul
+      #todo.col-md-3
+        %h4 New
+        - @tasks.todo.each do |task|
+          %li= task.title
+      #in_progress.col-md-3
+        %h4 In progress
+        - @tasks.in_progress.each do |task|
+          %li= task.title
+      #done.col-md-3
+        %h4 Done
+        - @tasks.done.each do |task|
+          %li= task.title
+      #approved.col-md-3
+        %h4 Approved
+        - @tasks.approved.each do |task|
+          %li= task.title
+        
