@@ -1,8 +1,24 @@
 .container
+  #new_project.modal.fade{ "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1" }
+    .modal-dialog.modal-md
+      .modal-content
+        = form_for @project, url: projects_path do |f|
+          .form-group
+            %label Title
+            = f.text_field :title, class: 'form-control', placeholder: 'Title for new project'
+          .form-group
+            %label Description
+            = f.text_area :description, class: 'form-control', placeholder: 'Description for new project'
+          = f.submit "Add", class: "btn btn-success"
   - @projects.each do |project|
     %a{ href: project_tasks_path(project) }
-      .project
+      .project{ 'data-project-id' => project.id }
         %span
           %strong= project.title
-        %span.pull-right.badge= project.tasks.open.size
-        %h5= "Created #{time_ago_in_words project.created_at} ago"
+        .pull-right
+          %span.badge= project.tasks.open.size
+          %span.glyphicon.glyphicon-remove.hidden
+        %p= truncated_description project
+        %p= "Created #{time_ago_in_words project.created_at} ago"
+  .new.project{ 'data-toggle'=>'modal', 'data-target'=>'#new_project' }
+    %strong Add project

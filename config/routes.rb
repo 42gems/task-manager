@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   devise_for :users
 
-  resources :projects, only: [:index] do
+  resources :projects, only: [:index, :create, :destroy] do
     resources :tasks do
       resources :comments, only: []
     end

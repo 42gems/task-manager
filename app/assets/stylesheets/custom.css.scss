@@ -15,6 +15,27 @@ a, a:hover, a:focus {
 }
 
 .center { text-align: center; }
+.modal-content { padding: 25px; }
+.modal { margin-top: 10%; }
+.btn { min-width: 100px; }
+
+/* Shared
+*******************************************/
+.new {
+  border: 2px dashed $dark_grey;
+  background-color: white;
+  text-align: center;
+  &.project {
+    background-color: white;
+    padding: 35px;
+
+    &:hover {
+      background-color: $lighter_grey;
+      box-shadow: none;
+    }
+  }
+}
+
 
 /* Devise login form
 *******************************************/
@@ -39,10 +60,12 @@ form#new_user {
   margin-right: 15px;
   margin-bottom: 20px;
   width: 250px;
-  min-height: 80px;
+  min-height: 97px;
   padding: 8px;
   overflow: hidden;
+  vertical-align: top;
   cursor: pointer;
+  display: inline-block;
 
   background-color: $light_grey;
 
