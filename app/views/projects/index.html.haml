@@ -13,8 +13,7 @@
   - @projects.each do |project|
     %a{ href: project_tasks_path(project) }
       .project{ 'data-project-id' => project.id }
-        %span
-          %strong= project.title
+        %strong= project.title
         .pull-right
           %span.badge= project.tasks.open.size
           %span.glyphicon.glyphicon-remove.hidden

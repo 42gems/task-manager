@@ -7,14 +7,14 @@ $(document).on 'mouseleave', '.project', ->
   $(@).find('.glyphicon-remove').toggleClass 'hidden'
 
 $(document).on 'click', '.glyphicon-remove', (e) ->
-  id = $(@).closest('.project').attr 'data-project-id'
-  proj = $(@)
+  glyph = $(@)
+  id = glyph.closest('.project').attr 'data-project-id'
   $.ajax(
     url: "/projects/" + id
     type: "POST"
     data:
       _method: "DELETE"
   ).done ->
-      proj.closest('a').remove()
-      proj.closest('.project').remove()
+      glyph.closest('a').remove()
+      glyph.closest('.project').remove()
   e.preventDefault()

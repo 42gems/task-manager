@@ -45,7 +45,6 @@ a, a:hover, a:focus {
   }
 }
 
-
 /* Devise login form
 *******************************************/
 form#new_user {
@@ -86,14 +85,14 @@ form#new_user {
 /* Tasks
 *******************************************/
 .tasks {
-  ul {
+  .list {
     background-color: $light_grey;
     border: 5px solid white;
     border-radius: 10px;
     margin: 0;
     list-style-type: none;
 
-    li {
+    .task {
       cursor: pointer;
       margin: 8px 0;
       margin-bottom: 10px;
