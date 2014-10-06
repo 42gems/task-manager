@@ -18,7 +18,7 @@
         .pull-right
           %span.badge= project.tasks.open.size
           %span.glyphicon.glyphicon-remove.hidden
-        %p= truncated_description project
+        %p= truncated_description_of project
         %p= "Created #{time_ago_in_words project.created_at} ago"
   .new.project{ 'data-toggle'=>'modal', 'data-target'=>'#new_project' }
     %strong Add project

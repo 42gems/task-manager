@@ -9,14 +9,12 @@ class ProjectsController < ApplicationController
   def new; end
 
   def create
-    title       =  params[:project][:title]
-    description =  params[:project][:description]
-    project = current_user.projects.build(title: title, description: description)
+    project = current_user.projects.build(project_params)
 
     if project.save
       redirect_to projects_path
     else
-      render text: 'new'
+      render action: :index, locals: { :@projects => Project.all, :@project => current_user.projects.build }
     end
   end
 
@@ -44,6 +42,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:product).permit(:title, :description)
+    params.require(:project).permit(:title, :description)
   end
 end

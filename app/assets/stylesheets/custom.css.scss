@@ -4,6 +4,7 @@ $dark_grey: #B3B3B3;
 $light_grey: #E8E8E8;
 $lighter_grey: #F5F5F5;
 $def_grey: #333333;
+$green: #039637;
 
 /* General
 *******************************************/
@@ -16,6 +17,11 @@ a, a:hover, a:focus {
   outline-style: none;
 }
 
+.title {
+  display: inline-block;
+  margin: 10px 0;
+  font-size: 18px;
+}
 .center { text-align: center; }
 .modal-content { padding: 25px; }
 .modal { margin-top: 10%; }
@@ -24,9 +30,10 @@ a, a:hover, a:focus {
 /* Shared
 *******************************************/
 .new {
+  cursor: pointer;
   border: 2px dashed $dark_grey;
-  background-color: white;
   text-align: center;
+  
   &.project {
     background-color: white;
     padding: 35px;
@@ -79,18 +86,13 @@ form#new_user {
 /* Tasks
 *******************************************/
 .tasks {
-  div {
+  ul {
     background-color: $light_grey;
     border: 5px solid white;
     border-radius: 10px;
-    margin: 0 0px;
-  }
-
-  ul {
-    padding: 0;
     margin: 0;
     list-style-type: none;
-    
+
     li {
       cursor: pointer;
       margin: 8px 0;

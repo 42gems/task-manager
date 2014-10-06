@@ -1,20 +1,37 @@
 .container
   .tasks
-    %ul
-      #todo.col-md-3
-        %h4 New
-        - @tasks.todo.each do |task|
-          %li= task.title
-      #in_progress.col-md-3
-        %h4 In progress
-        - @tasks.in_progress.each do |task|
-          %li= task.title
-      #done.col-md-3
-        %h4 Done
-        - @tasks.done.each do |task|
-          %li= task.title
-      #approved.col-md-3
-        %h4 Approved
-        - @tasks.approved.each do |task|
-          %li= task.title
-        
+    %ul#todo.col-md-3
+      .title New
+      .pull-right{ 'data-toggle'=>'modal', 'data-target'=>'#new_task' }
+        .btn.btn-success.btn-sm{ style: "margin-top: 8px; text-transform: uppercase; font-weight: 600;" } Add Task
+      - @tasks.todo.each do |task|
+        %li= task.title
+    %ul#in_progress.col-md-3
+      .title In progress
+      - @tasks.in_progress.each do |task|
+        %li= task.title
+    %ul#done.col-md-3
+      .title Done
+      - @tasks.done.each do |task|
+        %li= task.title
+    %ul#approved.col-md-3
+      .title Approved
+      - @tasks.approved.each do |task|
+        %li= task.title
+    #new_task.modal.fade{ "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1" }
+      .modal-dialog.modal-md
+        .modal-content
+          = form_for @task, url: project_tasks_path(@task.project) do |f|
+            .form-group
+              %label Title
+              = f.text_field :title, class: 'form-control', placeholder: 'Title for new task'
+            .form-group
+              %label Description
+              = f.text_area :description, class: 'form-control', placeholder: 'Description for new task'
+            .form-group
+              %label Estimated time
+              = f.text_field :estimated_time, class: 'form-control datetimepicker', placeholder: 'Estimated time for this task', 'data-date-format'=> 'DD-MM-YYYY HH:mm'
+            .form-group
+              %label Deadline
+              = f.text_field :deadline, class: 'form-control datetimepicker', placeholder: 'Deadline for this task', 'data-date-format'=> 'DD-MM-YYYY HH:mm'
+            = f.submit "Add", class: "btn btn-success"

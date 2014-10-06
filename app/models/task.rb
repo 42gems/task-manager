@@ -2,6 +2,8 @@ class Task < ActiveRecord::Base
   belongs_to :project
   has_many :comments, dependent: :destroy
 
+  after_initialize :set_state
+
   STATES = {
     todo: 'new',
     in_progress: 'in progress',
@@ -16,5 +18,10 @@ class Task < ActiveRecord::Base
   
   STATES.each do |key, val|
     scope key, -> { where state: val }
+  end
+
+  private
+  def set_state
+    update_attributes state: 'new' if id.nil?
   end
 end
