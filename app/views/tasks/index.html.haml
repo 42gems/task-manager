@@ -1,29 +1,27 @@
 .container
-  .tasks
-    .list#todo.col-md-3
+  .tasks{ 'data-url' => project_path(@project) }
+    .list#todo.col-md-3{ 'data-state' => 'new' }
       .title New
       .pull-right{ 'data-toggle'=>'modal', 'data-target'=>'#new_task' }
         .btn.btn-success.btn-sm{ style: "margin-top: 8px; text-transform: uppercase; font-weight: 600;" } Add Task
       - @tasks.todo.each do |task|
-        .task{ 'data-url' => project_task_path(task.project, task) }
-          %span= task.title
-          %span.glyphicon.glyphicon-remove.pull-right.hidden
-    .list#in_progress.col-md-3
+        = render "task", task: task
+    .list#in_progress.col-md-3{ 'data-state' => 'in progress' }
       .title In progress
       - @tasks.in_progress.each do |task|
-        .task= task.title
-    .list#done.col-md-3
+        = render "task", task: task
+    .list#done.col-md-3{ 'data-state' => 'done' }
       .title Done
       - @tasks.done.each do |task|
-        .task= task.title
-    .list#approved.col-md-3
+        = render "task", task: task
+    .list#approved.col-md-3{ 'data-state' => 'approved' }
       .title Approved
       - @tasks.approved.each do |task|
-        .task= task.title
+        = render "task", task: task
     #new_task.modal.fade{ "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1" }
       .modal-dialog.modal-md
         .modal-content
-          = form_for @task, url: project_tasks_path(@task.project) do |f|
+          = form_for @task, url: project_tasks_path(@project) do |f|
             .form-group
               %label Title
               = f.text_field :title, class: 'form-control', placeholder: 'Title for new task'
