@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :current_project, only: [:edit, :update, :destroy]
 
   def index
-    @projects = Project.all
+    @projects = current_user.projects.all
     @project = current_user.projects.build
   end
 
