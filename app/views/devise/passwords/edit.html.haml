@@ -1,0 +1,15 @@
+.container
+  %h2.center Change password
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+    = devise_error_messages!
+    = f.hidden_field :reset_password_token
+    %p
+      New password
+      %br/
+      = f.password_field :password, autofocus: true, autocomplete: "off", class: "btn btn-default"
+    %p
+      Confirm password
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "off", class: "btn btn-default"
+    = f.submit "Change", class: "btn btn-default"
+  .center= render "devise/shared/links"
