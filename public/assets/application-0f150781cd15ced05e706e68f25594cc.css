@@ -2,7 +2,14 @@
 *******************************************/
 /* General
 *******************************************/
-/* line 12, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* Added to prevent chrome bug */
+/* line 14, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+.col-md-3 {
+  width: 23%;
+  float: none;
+}
+
+/* line 19, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 a, a:hover, a:focus {
   display: inline-block;
   color: #333333;
@@ -12,47 +19,47 @@ a, a:hover, a:focus {
   outline-style: none;
 }
 
-/* line 21, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 28, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .title {
   display: inline-block;
   margin: 10px 0;
   font-size: 18px;
 }
 
-/* line 26, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 33, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .center {
   text-align: center;
 }
 
-/* line 27, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 34, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .modal-content {
   padding: 25px;
 }
 
-/* line 28, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 35, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .modal {
   margin-top: 100px;
 }
 
-/* line 29, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 36, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .btn {
   min-width: 100px;
 }
 
 /* Shared
 *******************************************/
-/* line 33, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 40, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .new {
   cursor: pointer;
   border: 2px dashed #b3b3b3;
   text-align: center;
 }
-/* line 38, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 45, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .new.project {
   background-color: white;
   padding: 35px;
 }
-/* line 42, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 49, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .new.project:hover {
   background-color: whitesmoke;
   box-shadow: none;
@@ -60,7 +67,7 @@ a, a:hover, a:focus {
 
 /* Devise login form
 *******************************************/
-/* line 51, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 58, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 form#new_user {
   width: 300px;
   /*height: 210px;*/
@@ -76,7 +83,7 @@ form#new_user {
 
 /* Projects
 *******************************************/
-/* line 68, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 75, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .project {
   margin-right: 15px;
   margin-bottom: 20px;
@@ -89,22 +96,24 @@ form#new_user {
   display: inline-block;
   background-color: #e8e8e8;
 }
-/* line 81, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 88, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .project:hover {
   box-shadow: 5px 5px 0 #b3b3b3;
 }
 
 /* Tasks
 *******************************************/
-/* line 89, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 96, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .tasks .list {
+  display: inline-block;
+  vertical-align: top;
   background-color: #e8e8e8;
-  border: 5px solid white;
+  /*border: 5px solid white;*/
   border-radius: 10px;
-  margin: 0;
+  margin: 5px;
   list-style-type: none;
 }
-/* line 96, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 106, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .tasks .list .task {
   cursor: pointer;
   margin: 8px 0;
@@ -113,9 +122,14 @@ form#new_user {
   border-radius: 5px;
   background-color: whitesmoke;
 }
-/* line 104, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 114, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .tasks .list .task:hover {
   box-shadow: 3px 3px 0 #b3b3b3;
+}
+/* line 119, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+.tasks .list.highlight {
+  box-shadow: 0 0 20px -3px #0091ff;
+  border: 1px solid #70c3ff;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -8450,7 +8464,14 @@ button.close {
 *******************************************/
 /* General
 *******************************************/
-/* line 12, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* Added to prevent chrome bug */
+/* line 14, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+.col-md-3 {
+  width: 23%;
+  float: none;
+}
+
+/* line 19, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 a, a:hover, a:focus {
   display: inline-block;
   color: #333333;
@@ -8460,47 +8481,47 @@ a, a:hover, a:focus {
   outline-style: none;
 }
 
-/* line 21, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 28, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .title {
   display: inline-block;
   margin: 10px 0;
   font-size: 18px;
 }
 
-/* line 26, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 33, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .center {
   text-align: center;
 }
 
-/* line 27, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 34, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .modal-content {
   padding: 25px;
 }
 
-/* line 28, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 35, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .modal {
   margin-top: 100px;
 }
 
-/* line 29, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 36, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .btn {
   min-width: 100px;
 }
 
 /* Shared
 *******************************************/
-/* line 33, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 40, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .new {
   cursor: pointer;
   border: 2px dashed #b3b3b3;
   text-align: center;
 }
-/* line 38, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 45, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .new.project {
   background-color: white;
   padding: 35px;
 }
-/* line 42, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 49, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .new.project:hover {
   background-color: whitesmoke;
   box-shadow: none;
@@ -8508,7 +8529,7 @@ a, a:hover, a:focus {
 
 /* Devise login form
 *******************************************/
-/* line 51, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 58, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 form#new_user {
   width: 300px;
   /*height: 210px;*/
@@ -8524,7 +8545,7 @@ form#new_user {
 
 /* Projects
 *******************************************/
-/* line 68, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 75, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .project {
   margin-right: 15px;
   margin-bottom: 20px;
@@ -8537,22 +8558,24 @@ form#new_user {
   display: inline-block;
   background-color: #e8e8e8;
 }
-/* line 81, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 88, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .project:hover {
   box-shadow: 5px 5px 0 #b3b3b3;
 }
 
 /* Tasks
 *******************************************/
-/* line 89, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 96, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .tasks .list {
+  display: inline-block;
+  vertical-align: top;
   background-color: #e8e8e8;
-  border: 5px solid white;
+  /*border: 5px solid white;*/
   border-radius: 10px;
-  margin: 0;
+  margin: 5px;
   list-style-type: none;
 }
-/* line 96, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 106, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .tasks .list .task {
   cursor: pointer;
   margin: 8px 0;
@@ -8561,9 +8584,14 @@ form#new_user {
   border-radius: 5px;
   background-color: whitesmoke;
 }
-/* line 104, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+/* line 114, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
 .tasks .list .task:hover {
   box-shadow: 3px 3px 0 #b3b3b3;
+}
+/* line 119, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/custom.css.scss */
+.tasks .list.highlight {
+  box-shadow: 0 0 20px -3px #0091ff;
+  border: 1px solid #70c3ff;
 }
 
 /* line 23, /home/danny/dev/42gems/task-manager/app/assets/stylesheets/application.css.scss */

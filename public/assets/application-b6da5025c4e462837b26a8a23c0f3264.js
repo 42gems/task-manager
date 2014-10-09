@@ -19658,18 +19658,11 @@ return $.ui.droppable;
   $(document).ready(function() {
     $('.task').draggable({
       containment: '.tasks',
-      start: function() {
-        return $(this).css({
-          zIndex: 99
-        });
-      },
-      stop: function() {
-        return $(this).css({
-          zIndex: 1
-        });
-      }
+      revert: 'invalid',
+      stack: '.task'
     });
     return $('.list').droppable({
+      hoverClass: 'highlight',
       drop: function(e, ui) {
         var data, state, task, url;
         task = ui.draggable;
