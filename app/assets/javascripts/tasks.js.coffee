@@ -29,12 +29,9 @@ $(document).ready ->
     containment: '.tasks'
     revert: 'invalid'
     stack: '.task'
-    # helper: 'clone'
-    # appendTo: '.list'
 
   $('.list').droppable
-    # hoverClass: 'highlight'
-    activeClass: 'highlight'
+    hoverClass: 'highlight'
     drop: (e, ui) ->
       task = ui.draggable
       task.detach().appendTo(@).css { top: 0, left: 0 }

@@ -11,7 +11,7 @@ $green: #039637;
 
 /* Added to prevent chrome bug */
 .col-md-3 {
-  width: 24%;
+  width: 23%;
   float: none;
 }
 
@@ -97,9 +97,9 @@ form#new_user {
     vertical-align: top;
 
     background-color: $light_grey;
-    border: 5px solid white;
+    /*border: 5px solid white;*/
     border-radius: 10px;
-    margin: 0;
+    margin: 5px;
     list-style-type: none;
 
     .task {
@@ -113,6 +113,11 @@ form#new_user {
       &:hover{
         box-shadow: 3px 3px 0 $dark_grey;
       }
-    }    
+    } 
+    
+    &.highlight {
+      box-shadow: 0 0 20px -3px #0091ff;
+          border: 1px solid #70c3ff;
+    }   
   }
 }
