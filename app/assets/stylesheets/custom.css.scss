@@ -8,6 +8,13 @@ $green: #039637;
 
 /* General
 *******************************************/
+
+/* Added to prevent chrome bug */
+.col-md-3 {
+  width: 24%;
+  float: none;
+}
+
 a, a:hover, a:focus {
   display: inline-block;
   color: $def_grey;
@@ -86,6 +93,9 @@ form#new_user {
 *******************************************/
 .tasks {
   .list {
+    display: inline-block;
+    vertical-align: top;
+
     background-color: $light_grey;
     border: 5px solid white;
     border-radius: 10px;
@@ -103,6 +113,6 @@ form#new_user {
       &:hover{
         box-shadow: 3px 3px 0 $dark_grey;
       }
-    }
+    }    
   }
 }

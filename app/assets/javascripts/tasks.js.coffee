@@ -27,12 +27,14 @@ $(document).on 'click', '.glyphicon-remove', (e) ->
 $(document).ready ->
   $('.task').draggable
     containment: '.tasks'
-    start: ->
-      $(@).css { zIndex: 99 }
-    stop: ->
-      $(@).css { zIndex: 1 }
+    revert: 'invalid'
+    stack: '.task'
+    # helper: 'clone'
+    # appendTo: '.list'
 
   $('.list').droppable
+    # hoverClass: 'highlight'
+    activeClass: 'highlight'
     drop: (e, ui) ->
       task = ui.draggable
       task.detach().appendTo(@).css { top: 0, left: 0 }
