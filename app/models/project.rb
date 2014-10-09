@@ -5,4 +5,12 @@ class Project < ActiveRecord::Base
   has_many :tasks, dependent: :destroy
 
   validates_presence_of :title
+
+  def not_new_tasks
+    {
+      'In progress' => tasks.in_progress,
+      'Done'        => tasks.done,
+      'Approved'    => tasks.approved
+    }
+  end
 end

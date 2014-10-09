@@ -3,8 +3,7 @@ class TasksController < ApplicationController
   before_action :current_task, only: [:edit, :update, :destroy]
 
   def index
-    @tasks = @project.tasks
-    @task = @project.tasks.build
+    @new_task = @project.tasks.build
   end
 
   def new; end
