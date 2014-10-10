@@ -1,6 +1,15 @@
 Good day, sir! You have been invited to take participation in the following project:
-.title= @project.title
-%p= @project.description
+%br
+%br
+%table
+  %thead
+    %tr
+      %td Name
+      %td Description
+  %tbody
+    %tr
+      %td= @project.title
+      %td= @project.description
 %br
 If you agree, please click the following link:
 = link_to 'Agree', project_add_member_url(@project.id, @user.id)

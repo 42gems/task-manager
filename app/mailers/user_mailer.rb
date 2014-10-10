@@ -4,6 +4,6 @@ class UserMailer < ActionMailer::Base
   def send_invite(project, user)
     @project = project
     @user = user
-    mail(to: @user.email).deliver
+    mail(to: @user.email, subject: 'Invitation to the project').deliver
   end
 end
