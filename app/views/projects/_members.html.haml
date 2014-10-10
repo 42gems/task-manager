@@ -1,0 +1,7 @@
+#members
+  - @members.each do |member|
+    %p
+      = member.email
+      = " - "
+      %a.remove_member{ href: '#', id: member.id, 'data-url' => project_remove_member_path(@project, member) } 
+        remove

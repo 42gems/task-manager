@@ -1,0 +1,21 @@
+.container
+  = form_for @project do |f|
+    = render 'shared/errors', entity: @project
+    .form-group
+      %label Owner
+      = f.select :owner_id, options_for_select(User.select_all_emails, @project.owner.id), {}, class: 'form-control'
+    .form-group
+      %label Title
+      = f.text_field :title, class: 'form-control', placeholder: 'Title of the project...'
+    .form-group
+      %label Description
+      = f.text_area :description, class: 'form-control', placholder: 'Description of the project...'
+    .form-group
+      %label Members
+      .form-inline
+        = render 'select_tag'
+      %br
+      #members_wrapper
+        = render 'members'
+    %br
+    = f.submit 'Save', class: "btn btn-sm btn-success"

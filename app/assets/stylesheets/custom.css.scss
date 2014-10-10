@@ -32,10 +32,28 @@ a, a:hover, a:focus {
 .center { text-align: center; }
 .modal-content { padding: 25px; }
 .modal { margin-top: 100px; }
-.btn { min-width: 100px; }
+.btn {
+  min-width: 100px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
 
 /* Shared
 *******************************************/
+.highlight-on-hover {
+  display: inline-block;
+  padding: 0 5px;
+  border-radius: 8px;
+  line-height: 14px;
+  margin: 3px 0;
+
+  &:hover{
+    font-style: italic;
+    color: #696969;
+    /*background-color: $light_grey;*/
+  }
+}
+
 .new {
   cursor: pointer;
   border: 2px dashed $dark_grey;
@@ -49,6 +67,32 @@ a, a:hover, a:focus {
       background-color: $lighter_grey;
       box-shadow: none;
     }
+  }
+}
+
+.btn-like {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #f8f8f8;
+
+  background-image: -webkit-gradient(
+  linear,
+  left top,
+  left bottom,
+  color-stop(0, #FFFFFF),
+  color-stop(1, #F2F2F2)
+  );
+  background-image: linear-gradient(to bottom, #FFFFFF 0%, #F2F2F2 100%);
+  
+  &:hover, &:focus, &:active {
+    background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0, #FFFFFF),
+      color-stop(1, #F2F2F2)
+    );
+    background-image: linear-gradient(to top, #FFFFFF 0%, #F2F2F2 100%);
   }
 }
 

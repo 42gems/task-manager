@@ -1,30 +1,37 @@
 .container
-  .tasks{ 'data-url' => project_path(@project) }
-    .list.col-md-3{ 'data-state' => 'new' }
-      .title New
-      .pull-right{ 'data-toggle'=>'modal', 'data-target'=>'#new_task' }
-        .btn.btn-success.btn-sm{ style: "margin-top: 8px; text-transform: uppercase; font-weight: 600;" } Add Task
-      - @project.tasks.todo.each do |task|
-        = render "task", task: task
-    - @project.not_new_tasks.each do |title, tasks|
-      .list.col-md-3{ 'data-state' => 'in progress' }
-        .title= title
-        - tasks.each do |task|
+  .row
+    .highlight-on-hover
+      .title
+        = @project.title
+      %a{ href: edit_project_path(@project) }
+        %span.glyphicon.glyphicon-edit
+  .row
+    .tasks{ 'data-url' => project_path(@project) }
+      .list.col-md-3{ 'data-state' => 'new' }
+        .title New
+        .pull-right{ 'data-toggle'=>'modal', 'data-target'=>'#new_task' }
+          .btn.btn-success.btn-sm{ style: "margin-top: 8px;" } Add Task
+        - @project.tasks.todo.each do |task|
           = render "task", task: task
-    #new_task.modal.fade{ "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1" }
-      .modal-dialog.modal-md
-        .modal-content
-          = form_for @new_task, url: project_tasks_path(@project) do |f|
-            .form-group
-              %label Title
-              = f.text_field :title, class: 'form-control', placeholder: 'Title for new task'
-            .form-group
-              %label Description
-              = f.text_area :description, class: 'form-control', placeholder: 'Description for new task'
-            .form-group
-              %label Estimated time
-              = f.text_field :estimated_time, class: 'form-control datetimepicker', placeholder: 'Estimated time for this task', 'data-date-format'=> 'DD-MM-YYYY HH:mm'
-            .form-group
-              %label Deadline
-              = f.text_field :deadline, class: 'form-control datetimepicker', placeholder: 'Deadline for this task', 'data-date-format'=> 'DD-MM-YYYY HH:mm'
-            = f.submit "Add", class: "btn btn-success"
+      - @project.not_new_tasks.each do |title, tasks|
+        .list.col-md-3{ 'data-state' => 'in progress' }
+          .title= title
+          - tasks.each do |task|
+            = render "task", task: task
+      #new_task.modal.fade{ "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1" }
+        .modal-dialog.modal-md
+          .modal-content
+            = form_for @new_task, url: project_tasks_path(@project) do |f|
+              .form-group
+                %label Title
+                = f.text_field :title, class: 'form-control', placeholder: 'Title for new task'
+              .form-group
+                %label Description
+                = f.text_area :description, class: 'form-control', placeholder: 'Description for new task'
+              .form-group
+                %label Estimated time
+                = f.text_field :estimated_time, class: 'form-control datetimepicker', placeholder: 'Estimated time for this task', 'data-date-format'=> 'DD-MM-YYYY HH:mm'
+              .form-group
+                %label Deadline
+                = f.text_field :deadline, class: 'form-control datetimepicker', placeholder: 'Deadline for this task', 'data-date-format'=> 'DD-MM-YYYY HH:mm'
+              = f.submit "Add", class: "btn btn-success"

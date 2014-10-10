@@ -1,7 +1,7 @@
 module ProjectsHelper
-  def truncated_description_of(project)
+  def truncated_description_of(project, length)
     unless project.description.nil? or project.description.empty?
-      project.description.truncate 40
+      project.description.truncate length
     else
       "Add description"
     end
