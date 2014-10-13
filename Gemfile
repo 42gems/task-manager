@@ -31,8 +31,14 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'letter_opener'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :test do
-  gem 'cucumber-rails'
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'cucumber-rails', require: false
+  gem 'selenium-webdriver'
 end
