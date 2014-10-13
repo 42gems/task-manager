@@ -17,12 +17,8 @@ class Project < ActiveRecord::Base
 
   def select_users_for_invites
     user_ids = Invite.where(project_id: self.id).pluck(:user_id) << self.owner.id
-    users = nil
-    unless user_ids.empty?
-      users = User.where.not('id IN (?)', user_ids)
-    else
-      users = User.where.not(id: self.owner.id)
-    end
+    users = User.where.not('id IN (?)', user_ids)
+
     users.map do |user|
       [
         user.email,

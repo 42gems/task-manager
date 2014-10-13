@@ -1,9 +1,9 @@
 .container
   .row
-    .highlight-on-hover
-      .title
-        = @project.title
-      %a{ href: edit_project_path(@project) }
+    %a{ href: edit_project_path(@project) }
+      .highlight-on-hover
+        .title
+          = @project.title
         %span.glyphicon.glyphicon-edit
   .row
     .tasks{ 'data-url' => project_path(@project) }
