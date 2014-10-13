@@ -11,4 +11,12 @@ class User < ActiveRecord::Base
   def self.select_all_emails
     User.pluck :email, :id
   end
+
+  def can_manage?(project)
+    if id == project.owner.id || invites.where(project_id: project.id).any?
+      true
+    else
+      false
+    end
+  end
 end

@@ -1,8 +1,10 @@
 class ProjectsController < ApplicationController
   before_action :current_project, only: [:edit, :update, :destroy]
+  before_action :authorize, only: [:edit, :update, :destroy]
 
   def index
-    @projects = current_user.projects.all
+    project_ids = (current_user.projects.pluck(:id) << current_user.invites.pluck(:project_id)).flatten!
+    @projects = Project.where('id IN (?)', project_ids)
     @project = current_user.projects.build
   end
 
@@ -56,7 +58,13 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
     @project.members.delete(params[:id])
     respond_to do |format|
-      format.html { redirect_to project_tasks_url(@project) }
+      format.html {
+        unless current_user.can_manage? @project
+          render text: root_path
+        else
+          render text: edit_project_path(@project)
+        end
+      }
       format.json {
         render partial: 'select_tag', formats: :html
       }

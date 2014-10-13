@@ -15,8 +15,13 @@ class Project < ActiveRecord::Base
     }
   end
 
+  def select_members
+    user_ids = Invite.where(project_id: id).pluck(:user_id) << owner.id
+    User.where('id IN (?)', user_ids).pluck :email, :id
+  end
+
   def select_users_for_invites
-    user_ids = Invite.where(project_id: self.id).pluck(:user_id) << self.owner.id
+    user_ids = Invite.where(project_id: id).pluck(:user_id) << owner.id
     users = User.where.not('id IN (?)', user_ids)
 
     users.map do |user|

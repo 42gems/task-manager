@@ -3,7 +3,7 @@
     = render 'shared/errors', entity: @project
     .form-group
       %label Owner
-      = f.select :owner_id, options_for_select(User.select_all_emails, @project.owner.id), {}, class: 'form-control'
+      = f.select :owner_id, options_for_select(@project.select_members, @project.owner.id), {}, class: 'form-control'
     .form-group
       %label Title
       = f.text_field :title, class: 'form-control', placeholder: 'Title of the project...'

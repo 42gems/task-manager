@@ -44,5 +44,6 @@ $(document).on 'click', '.remove_member', ->
     _method: 'DELETE',
     user_id: user_id
   }
-  $.post url, data, -> 
+  $.post url, data, (r) -> 
     link.closest('p').remove()
+    window.location.replace(r)

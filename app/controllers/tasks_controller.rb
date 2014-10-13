@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authorize
   before_action :current_project, except: [:destroy]
   before_action :current_task, only: [:edit, :update, :destroy]
 
