@@ -20677,8 +20677,9 @@ the specific language governing permissions and limitations under the Apache Lic
       _method: 'DELETE',
       user_id: user_id
     };
-    return $.post(url, data, function() {
-      return link.closest('p').remove();
+    return $.post(url, data, function(r) {
+      link.closest('p').remove();
+      return window.location.replace(r);
     });
   });
 
